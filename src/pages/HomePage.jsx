@@ -66,8 +66,10 @@ function HomePage() {
             </tr>
           </tbody>
         </table>
-        <Modal isOpen={openModal}/>
       </div>
+        <Modal isOpen={openModal}>
+          Riva bixona
+        </Modal>
     </div>
   );
 }	
