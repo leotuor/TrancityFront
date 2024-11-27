@@ -16,17 +16,25 @@ const MODAL_STYLE = {
   left: '50%',
   right: '50%',
   transform: 'translate(-50%, -50%)',
-  padding: '150px',
+  paddingTop: '45vh',
+  paddingBottom: '45vh',
+  paddingLeft: '45%',
+  paddingRight: '45%',
   borderRadius: '15px',
   boxShadow: '0px 0px 80px #999',
   backgroundColor: '#fff',
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignContent: 'center',
+  flexDirection: 'column',
+  textAlign: 'center',
 }
 
-function Modal({isOpen}) {
+function Modal({isOpen, children}) {
   if (isOpen) {
     return(
       <div style={BACKGROUND_STYLE}>
-        <div style={MODAL_STYLE}>asdasd</div>
+        <div style={MODAL_STYLE}>{children}</div>
       </div>
       );
   }

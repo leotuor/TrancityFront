@@ -1,8 +1,14 @@
 import Icon from '@mdi/react';
-import { mdiMenu } from '@mdi/js';
+import { mdiMenu, mdiClose } from '@mdi/js';
 import BusCard from '../components/BusCard';
 import React, { useState } from 'react';
 import Modal from '../components/Modal';
+
+const ALIGN_CARD = {
+  display: 'flex', 
+  alignItems: 'center', 
+  justifyContent: 'center'
+}
 
 function HomePage() {
 
@@ -54,22 +60,61 @@ function HomePage() {
               </td>
             </tr>
             <tr>
-              <td style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '2%'}}>
+              <td style={{...ALIGN_CARD, marginTop: '2%', }}>
                 <BusCard />
               </td>
-              <td style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <td style={ALIGN_CARD}>
                 <BusCard />
               </td>
-              <td style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <td style={ALIGN_CARD}>
                 <BusCard />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-        <Modal isOpen={openModal}>
-          Riva bixona
-        </Modal>
+      <Modal isOpen={openModal}>
+      <button 
+      style={{ 
+        backgroundColor: 'transparent', 
+        border: 'none',
+        cursor: 'pointer',
+        position: 'absolute',
+        top: '-2vh',
+        right: '0',
+        zIndex: 2
+      }}
+      onClick={() => setOpenModal(false)}
+    >
+      <Icon path={mdiClose} size={3} style={{color: 'red'}}/>
+    </button> 
+        <table style={{ marginTop: '-35vh'}}>
+          <tbody>
+            <tr>
+              <td>
+                <input 
+                  placeholder="text" className="input" 
+                  style={{width: '70vw', marginTop: '-1%', boxShadow: '0px 0px 5px #999' }} 
+                />
+              </td>
+            </tr>
+            <tr>
+              <td style={{...ALIGN_CARD, paddingTop: '2vh'}}>
+                <BusCard />
+              </td>
+              <td style={ALIGN_CARD}>
+                <BusCard />
+              </td>
+              <td style={ALIGN_CARD}>
+                <BusCard />
+              </td>
+              <td style={ALIGN_CARD}>
+                <BusCard />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </Modal>
     </div>
   );
 }	
