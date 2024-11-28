@@ -1,8 +1,9 @@
 import Icon from '@mdi/react';
-import { mdiMenu, mdiClose } from '@mdi/js';
+import { mdiClose } from '@mdi/js';
 import BusCard from '../components/BusCard';
 import React, { useState } from 'react';
 import Modal from '../components/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const ALIGN_CARD = {
   display: 'flex', 
@@ -10,38 +11,20 @@ const ALIGN_CARD = {
   justifyContent: 'center'
 }
 
+
+
 function HomePage() {
 
   const [openModal, setOpenModal] = useState(false);
   
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate('/tela-motorista');
+  };
+
   return (
     <div className="App">
-      <div
-        style={{
-            backgroundColor: '#FFC107',
-            height: '5%',
-            width: '100%',
-            position: 'fixed',
-            top: 0,
-            zIndex: 1,
-            borderBottom: '2px solid black',
-            display: 'flex',
-            alignItems: 'center',
-            padding: '0 10px',
-          }}>
-        <Icon style={{ color: 'black' }} path={mdiMenu} size={2} />
-        <img
-          src="/images/logo.png"
-          alt=""
-          style={{
-            width: '15%',
-            position: 'absolute',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            marginTop: '-1%'
-          }}
-        />
-      </div>
       <div style={{ display: "flex", justifyContent: "center", position: "absolute", top: 0, width: "100%" }}>
         <table style={{ margin: 0, padding: 0, marginTop: '-4%'}}>
           <tbody>
@@ -60,7 +43,7 @@ function HomePage() {
               </td>
             </tr>
             <tr>
-              <td style={{...ALIGN_CARD, marginTop: '2%', }}>
+              <td style={{...ALIGN_CARD, marginTop: '2%', cursor: 'pointer'}} onClick={() => handleNavigation()}>
                 <BusCard />
               </td>
               <td style={ALIGN_CARD}>

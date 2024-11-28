@@ -1,13 +1,20 @@
 import './App.css';
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import TelaMotorista from './pages/TelaMotorista';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="tela-motorista" element={<TelaMotorista />} />
+      </Route>
+    )
+  );
 
-  const router  = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<HomePage />} />)
-  )
-  return <RouterProvider router ={router} />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
