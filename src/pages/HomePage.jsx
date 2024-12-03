@@ -15,7 +15,7 @@ function HomePage() {
   const [openModal, setOpenModal] = useState(false);
   
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: '#FEFEFE'}}>
       <div
         style={{
             backgroundColor: '#FFC107',
@@ -29,7 +29,7 @@ function HomePage() {
             alignItems: 'center',
             padding: '0 10px',
           }}>
-        <Icon style={{ color: 'black' }} path={mdiMenu} size={2} />
+          <Icon style={{ color: 'black' }} path={mdiMenu} size={2} />
         <img
           src="/images/logo.png"
           alt=""

@@ -28,6 +28,8 @@ const MODAL_STYLE = {
   alignContent: 'center',
   flexDirection: 'column',
   textAlign: 'center',
+  overflowY: 'scroll',
+  overflowX: 'hidden'
 }
 
 function Modal({isOpen, children}) {
