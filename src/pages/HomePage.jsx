@@ -3,7 +3,6 @@ import { mdiClose } from '@mdi/js';
 import BusCard from '../components/BusCard';
 import React, { useState } from 'react';
 import Modal from '../components/Modal';
-import { useNavigate } from 'react-router-dom';
 
 const ALIGN_CARD = {
   display: 'flex', 
@@ -17,12 +16,6 @@ function HomePage() {
 
   const [openModal, setOpenModal] = useState(false);
   
-  const navigate = useNavigate();
-
-  const handleNavigation = () => {
-    navigate('/tela-motorista');
-  };
-
   return (
     <div className="App">
       <div style={{ display: "flex", justifyContent: "center", position: "absolute", top: 0, width: "100%" }}>
@@ -36,14 +29,14 @@ function HomePage() {
             <tr>
               <td style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
               <input 
-                placeholder="text" className="input" 
+                placeholder="" className="input" 
                 onClick={() => setOpenModal(true)}
                 style={{ width: '80%', height: '35px', boxShadow: '0px 0px 5px #999' }} 
               />
               </td>
             </tr>
             <tr>
-              <td style={{...ALIGN_CARD, marginTop: '2%', cursor: 'pointer'}} onClick={() => handleNavigation()}>
+              <td style={{...ALIGN_CARD, marginTop: '2%'}}>
                 <BusCard />
               </td>
               <td style={ALIGN_CARD}>
@@ -76,7 +69,7 @@ function HomePage() {
             <tr>
               <td>
                 <input 
-                  placeholder="text" className="input" 
+                  placeholder="" className="input" 
                   style={{width: '70vw', marginTop: '-1%', boxShadow: '0px 0px 5px #999' }} 
                 />
               </td>

@@ -30,5 +30,7 @@
   
   .map-container {
     flex: 1;
-    height: 100%;
+    margin-top: 6.5vh;
+    height: 90%;
+    box-shadow: 0px 0px 20px #999;
 }

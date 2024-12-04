@@ -3,6 +3,7 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import HomePage from './pages/HomePage';
 import TelaMotorista from './pages/TelaMotorista';
 import MainLayout from './layouts/MainLayout';
+import LoginScreen from './pages/LoginScreen';
 
 function App() {
   const router = createBrowserRouter(
@@ -10,6 +11,7 @@ function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="tela-motorista" element={<TelaMotorista />} />
+        <Route path='login' element={<LoginScreen/>}/>
       </Route>
     )
   );
