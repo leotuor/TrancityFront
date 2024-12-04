@@ -1,3 +1,22 @@
+import { useEffect, useState } from "react";
+
+const [user ,setUser] = useState([]);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+const fetchUser = async () => {
+  try {
+    const res = await fetch('http://localhost:3000/usuario');
+    const data = await res.json();
+    setUser(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+
+}
+fetchUser();
+}, []);
+
 const LoginScreen = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
