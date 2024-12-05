@@ -7,13 +7,13 @@ function BusCard() {
       <table>
         <tbody>
           <tr>
-            <td>
-              <h2 style={{color: 'black', marginLeft: '15%', marginRight: '-75%' }}>Linha Desbravador</h2>
+            <td style={{ textAlign: 'left'}}>
+              <h2 style={{color: 'black', marginLeft: '15%', marginRight: '-75%'}}>Linha Desbravador</h2>
             </td>
             <td style={{textAlign: 'right', width: '60%'}}>
               <h3 style={{color: 'black'}}>Chegada em aprox:</h3>
             </td>
-            <td>
+            <td style={{ textAlign: 'left'}}>
               <h2 style={{color: 'black'}}>18:30</h2>
             </td>
           </tr>

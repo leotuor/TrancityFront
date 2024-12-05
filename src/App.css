@@ -23,15 +23,20 @@
 }
 
 button {
+  font-size: 1.5rem;
+  color: #fafafa;
+  text-transform: uppercase;
   padding: 10px 20px;
-  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #e4ddb5;
+  background: #252525;
+  box-shadow: 0px 0px 10px #999;
   cursor: pointer;
-  margin-top: 20px;
-  background-color: #61dafb;
-  border: none;
-  border-radius: 5px;
+  margin: 35px 0;
 }
 
-button:hover {
-  background-color: #21a1f1;
+button:active {
+  box-shadow: none;
+  transform: translate(0px, 0px, 3px);
 }
+
