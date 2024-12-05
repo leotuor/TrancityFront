@@ -14,6 +14,9 @@ const MainLayout = () => {
   const goToHome = () => {
     navigate('/');
   };
+  const goToLogin = () => {
+    navigate('/login');
+  };
 
   return (
     <>
@@ -51,7 +54,7 @@ const MainLayout = () => {
           style={{ color: 'black', marginLeft: '93vw', cursor: 'pointer' }}
           path={mdiAccount}
           size={2}
-          onClick={isLogged ? goToMotorista : goToHome}
+          onClick={isLogged ? goToMotorista : goToLogin}
         />
       </div>
     </>

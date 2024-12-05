@@ -1,23 +1,45 @@
 import { useEffect, useState } from "react";
 
-const [user ,setUser] = useState([]);
-const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-const fetchUser = async () => {
-  try {
-    const res = await fetch('http://localhost:3000/usuario');
-    const data = await res.json();
-    setUser(data);
-  } catch (error) {
-    console.log(error.message);
-  }
-
-}
-fetchUser();
-}, []);
 
 const LoginScreen = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      const res = await fetch('http://localhost:3333/usuario');
+      const dados = await res.json();
+      setItems(dados);
+      console.log(items);
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  
+  fetchUser();
+  }, []);
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const getEmail = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const getPassword = (event) => {
+    setPassword(event.target.value);
+    localStorage.setItem('isLogged', 'true');
+  }
+
+  const handleSubmit = () => {
+    if (items.data.some((user) => user.email == email && user.senha == password)) {
+      console.log('Usuário logado');
+    }else{
+      console.log('Usuário não encontrado');
+    }
+  }
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div
@@ -43,8 +65,8 @@ const LoginScreen = () => {
                     boxShadow: '0px 0px 5px #999',
                     marginLeft: '-2vw',
                     marginBottom: '6vh',
-                    
                   }}
+                  onChange={(e) => getEmail(e)}
                 />
                 <h2 style={{ textAlign: 'center', marginLeft: '-2vw'}}>Senha</h2>
                 <input
@@ -55,8 +77,9 @@ const LoginScreen = () => {
                     height: '3vh',
                     boxShadow: '0px 0px 5px #999',
                     marginLeft: '-2vw',
-                    marginBottom: '10vh', // Espaço abaixo do segundo input
+                    marginBottom: '10vh',
                   }}
+                  onChange={(e) => getPassword(e)}
                 />
               </td>
             </tr>
@@ -70,6 +93,7 @@ const LoginScreen = () => {
                     padding: '0.5vh 2vw',
                     marginBottom: '7vh',
                   }}
+                  onClick={handleSubmit}
                 >
                   Login
                 </button>
@@ -80,6 +104,6 @@ const LoginScreen = () => {
       </div>
     </div>
   );
-};
+}
 
 export default LoginScreen;
